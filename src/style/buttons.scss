@@ -1,0 +1,55 @@
+.button {
+    transition: background-color .2s, color .2s, transform .2s;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    background-color: var(--secondary);
+    color: var(--primary);
+    padding: 16px 30px;
+
+    &.primary {
+        background-color: var(--theme-blue);
+        color: var(--theme-grey);
+    }
+
+    &.secondary {
+        background-color: var(--theme-grey);
+        color: var(--theme-blue);
+    }
+
+    &.white {
+        background-color: WhiteSmoke;
+        color: var(--theme-blue);
+    }
+
+    &.inverted {
+        background-color: var(--primary);
+        color: var(--secondary);
+    }
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &:active {
+        transform: scale(.98);
+        transition: transform .05s;
+    }
+}
+
+.svgButton {
+    transition: transform .2s ease-in-out;
+    width: 1.5em;
+    height: 1.5em;
+
+    &:hover {
+        cursor: pointer;
+        transition: transform .1s ease-in-out;
+        transform: scale(1.1);
+    }
+
+    &:active {
+        transform: scale(.95);
+    }
+}

@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+@import 'style/sizes';
+@import 'style/colors';
+
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--text-primary);
+}
+
+a, button.link {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color .35s ease-in-out;
+  color: inherit;
+  border: none;
+  background-color: transparent;
+
+  &:hover {
+    transition: text-decoration-color .1s ease-in-out;
+    text-decoration-color: inherit;
+  }
+}
+
+#app {
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  min-height: 100vh;
+  margin-top: -$header-height;
+  padding-top: $header-height;
+  background-color: var(--accent-1);
+  transition: background-color .35s ease-in-out;
+  box-sizing: content-box;
+
+  @import "style/buttons";
+
+  &.menu-active {
+    & .header {
+      margin-left: $menu-size;
+    }
+
+    & .menu {
+      transform: none;
+    }
+
+    & .content {
+      margin-left: $menu-size;
+    }
+
+    & .footer {
+      margin-left: $menu-size;
+    }
+
+    & #loader {
+      padding-left: $menu-size;
+    }
+  }
+
+  & .content {
+    margin-top: $header-height;
+    transition: margin-left .5s;
+    padding: 1em 1em 8em;
+  }
+
+  @import 'style/tooltip';
+}
+
+@media only screen and (max-width: $mobile_size) {
+  #app {
+    & .menu {
+      &-close {
+        display: inline-block;
+      }
+    }
+
+    &.menu-active {
+      & .content {
+        margin-left: 0;
+      }
+
+      & .footer {
+        margin-left: 0;
+      }
+    }
+
+    .button {
+      width: 100%;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+@import 'style/scrollbar';
