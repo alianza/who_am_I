@@ -1,60 +1,43 @@
 import './App.scss';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Header from "./components/Layout/Header/Header";
-import Menu from "./components/Layout/Menu/Menu";
-import { useState } from "react";
-import useTheme from "./lib/Theme";
-import { useEventListeners } from "./lib/EventListeners";
-import localStorageService from "./lib/services/localStorageService";
-import Footer from "./components/Layout/Footer/Footer";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Loader from "./components/Loader/Loader";
-import Artists from "./components/Pages/Artists/Artists";
+import { AnimatedSwitch } from "react-router-transition";
+import Home from "./components/Pages/Home/Home";
 import NotFound from "./components/Pages/NotFound/NotFound";
-
-const darkThemeKey = 'darkTheme'
+import About from "./components/Pages/About/About";
+import Menu from "./components/Layout/Menu/Menu";
+import Result from "./components/Pages/Result/Result";
 
 function App() {
-  const [darkTheme, setDarkTheme] = useState(localStorageService.getValue(darkThemeKey))
-
-  useTheme(darkTheme)
-
-  useEventListeners()
-
-  const toggleMenu = () => { document.getElementById("app").classList.toggle("menu-active") }
-
-  const toggleTheme = () => { localStorageService.setKeyValue(darkThemeKey, !darkTheme); setDarkTheme(prevTheme => !prevTheme) }
-
   return (
       <Router>
-        <div id="app">
+          <div id="app" className={'text-text-primary'}>
 
-          <Header onMenuClick={toggleMenu} title={'React template app'}/>
+              <Menu/>
 
-          <Menu onMenuClick={toggleMenu}/>
+              <div id={'content'} className={'h-screen bg-primary'}>
 
-          <div className={'content'}>
-            <Switch>
-              <Route exact path={['/']} render={({match}) =>
-                  <Artists match={match}/>}/>
+                  <AnimatedSwitch
+                      atEnter={{opacity: 0}}
+                      atLeave={{opacity: 0}}
+                      atActive={{opacity: 1}}
+                      className={'switch-wrapper'}
+                  >
+                      <Route exact path='/' component={Home}/>
 
-              {/*<Route exact path={['/artist/:artistName']} render={({match}) =>*/}
-              {/*    <Artist match={match}/>}/>*/}
+                      <Route exact path={['/result', '/result/:name', '/result/:name/:countryCode']} component={Result}/>
 
-              {/*<Route exact path={['/songs']} render={({match}) =>*/}
-              {/*    <Songs match={match}/>}/>*/}
+                      <Route path="/about" component={About}/>
 
-              {/*<Route exact path={['/genre/:genreName']} render={({match}) =>*/}
-              {/*    <Genre match={match}/>}/>*/}
+                      <Route component={NotFound}/>
 
-              <Route render={() => <NotFound/>}/>
-            </Switch>
+                  </AnimatedSwitch>
+
+              </div>
+
+              <Loader/>
+
           </div>
-
-          <Footer darkTheme={darkTheme} onThemeButtonClick={toggleTheme}/>
-
-          <Loader/>
-
-        </div>
       </Router>
   );
 }

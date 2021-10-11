@@ -1,12 +1,14 @@
 :root {
-    --theme-blue: DodgerBlue;
-    --theme-grey: DimGrey;
+    --theme-purple-dark: #1C0C5B;
+    --theme-purple-light: #3D2C8D;
+    --theme-pink-dark: #916BBF;
+    --theme-pink-light: #C996CC;
 
-    --primary: var(--theme-blue);
-    --secondary: var(--theme-grey);
+    --primary: var(--theme-purple-dark);
+    --secondary: var(--theme-pink-light);
 
-    --text-primary: #333333;
-    --text-secondary: WhiteSmoke;
+    --text-primary: var(--theme-pink-dark);
+    --text-secondary: var(--theme-purple-light);
 
     --accent-0: #fff;
     --accent-1: #fafafa;
@@ -18,23 +20,4 @@
     --accent-7: #333333;
     --accent-8: #111111;
     --accent-9: #000;
-}
-
-[data-theme='dark'] {
-    --primary: var(--theme-grey);
-    --secondary: var(--theme-blue);
-
-    --text-primary: WhiteSmoke;
-    --text-secondary: #333333;
-
-    --accent-9: #fff;
-    --accent-8: #fafafa;
-    --accent-7: #eaeaea;
-    --accent-6: #999999;
-    --accent-5: #888888;
-    --accent-4: #666666;
-    --accent-3: #444444;
-    --accent-2: #333333;
-    --accent-1: #111111;
-    --accent-0: #000;
 }

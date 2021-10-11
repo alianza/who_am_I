@@ -1,10 +1,13 @@
 const Loader = {
+
     showLoader()  {
         document.getElementById('loader').classList.add('active')
     },
 
-    hideLoader()  {
-        document.getElementById('loader').classList.remove('active')
+    hideLoader()  { // Hides the loader element after a small delay
+        setTimeout(() => {
+            document.getElementById('loader').classList.remove('active')
+        }, 250)
     }
 }
 

@@ -7,6 +7,8 @@ module.exports = {
       colors: {
         'primary': 'var(--primary)',
         'secondary': 'var(--secondary)',
+        'text-primary': 'var(--theme-pink-dark)',
+        'text-secondary': 'var(--theme-purple-light)',
         'accent-0': 'var(--accent-0)',
         'accent-1': 'var(--accent-1)',
         'accent-2': 'var(--accent-2)',
@@ -21,21 +23,17 @@ module.exports = {
       boxShadow: {
         'outline-primary': '0 0 0 2px var(--primary)',
         'outline-secondary': '0 0 0 2px var(--secondary)',
+        'outline-text-secondary': '0 0 0 2px var(--text-secondary)',
       },
-      screens: {
-        'desktop': '900px',
-        'tablet': '600px',
-        'mobile': '480px',
-        'xs': '320px',
-      },
+      textShadow: {
+        'main' : 'text-shadow: -8px -8px 0 var(--text-secondary)'
+      }
     },
   },
   variants: {
     extend: {
-      width: [
-          'last'
-      ],
-    },
+      width: ['last'],
+    }
   },
   plugins: [],
 }
