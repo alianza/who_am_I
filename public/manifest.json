@@ -1,7 +1,7 @@
 {
-  "name": "Rockstars IT Tech Case",
-  "short_name": "Rockstars IT",
-  "description": "React based application for the Team Rockstars IT Tech Case",
+  "name": "Who Am I?",
+  "short_name": "WhoAmI?",
+  "description": "React based application able to predict user age, gender and nationality based on name!",
   "icons": [
     {
       "src": "favicon.ico",
@@ -19,7 +19,7 @@
       "type": "image/png"
     },
     {
-      "src": "/maskable_icon_x192.png",
+      "src": "/maskable_icon_x1024.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
@@ -27,6 +27,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#ffe000",
-  "background_color": "#232323"
+  "theme_color": "#1C0C5B",
+  "background_color": "#C996CC"
 }
