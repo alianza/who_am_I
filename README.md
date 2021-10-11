@@ -2,7 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This project is a React setup template with SASS, TailwindCSS with (JIT mode), PWA and Jest/Cypress support out-of-the box.
+This project is a built using the React setup template with SASS, TailwindCSS with (JIT mode), PWA and Jest/Cypress support out-of-the box.
+
+This application is called 'Who Am I?' and is able to predict the users age, gender and nationality based on their name. It's also possible to supply your nationality to increase accuracy of the other metrics. Try it out and enjoy!
+
+This web-application is built using the React web-framework using the https://agify.io/, https://genderize.io/ and https://nationalize.io/ API sets.
+Author: Jan-Willem van Bremen 'https://jwvbremen.nl/', 2021
 
 ## Available Scripts
 
