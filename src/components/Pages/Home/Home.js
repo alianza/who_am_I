@@ -25,7 +25,7 @@ function Home() {
                 <h1 className={'main-title'}>Who Am I?</h1>
             </div>
             <div className={"content-container"}>
-                <input autoFocus onKeyDown={e => {if (e.key === "Enter") { doLookup() }}} onChange={event => setName(event.target.value)} className={"p-2 placeholder-text-primary"} placeholder={"Enter your name..."}/>
+                <input onKeyDown={e => {if (e.key === "Enter") { doLookup() }}} onChange={event => setName(event.target.value)} className={"p-2 placeholder-text-primary"} placeholder={"Enter your name..."}/>
                 <div className={'tooltip relative w-full'} data-tip={'To increase prediction accuracy!'}>
                     <select onChange={event => setCountryCode(event.target.value)} defaultValue={'DEFAULT'} className={"p-2 w-full"}>
                         <option value="DEFAULT" disabled hidden>Select your country... (Optional)</option>
