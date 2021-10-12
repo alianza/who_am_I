@@ -21,6 +21,14 @@ a, button.link {
 
   @import "style/buttons";
 
+  .main-title {
+    @apply text-6xl xsm:text-8xl text-accent-1 text-shadow-main mb-4 overflow-hidden overflow-ellipsis;
+  }
+
+  .content-container {
+    @apply flex flex-col gap-4 sm:m-auto;
+  }
+
   @import 'style/tooltip';
 }
 

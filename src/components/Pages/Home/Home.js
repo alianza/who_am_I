@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import countries from "ISO3166-1.alpha2.json";
 import { Link, useHistory } from "react-router-dom";
+import Layout from "../../Layout/Layout/Layout";
 
 function Home() {
     const history = useHistory()
@@ -19,11 +20,11 @@ function Home() {
     }
 
     return (
-        <div id={'home'} className={'absolute w-screen top-16 p-4 flex flex-col gap-8'}>
+        <Layout>
             <div className={'text-center'}>
-                <h1 className={'text-8xl text-accent-1 text-shadow-main'}>Who Am I?</h1>
+                <h1 className={'main-title'}>Who Am I?</h1>
             </div>
-            <div className={"flex flex-col gap-4 sm:m-auto"}>
+            <div className={"content-container"}>
                 <input autoFocus onKeyDown={e => {if (e.key === "Enter") { doLookup() }}} onChange={event => setName(event.target.value)} className={"p-2 placeholder-text-primary"} placeholder={"Enter your name..."}/>
                 <div className={'tooltip relative w-full'} data-tip={'To increase prediction accuracy!'}>
                     <select onChange={event => setCountryCode(event.target.value)} defaultValue={'DEFAULT'} className={"p-2 w-full"}>
@@ -33,8 +34,8 @@ function Home() {
                 </div>
                 <button onClick={doLookup} className={"bg-secondary p-2 text-primary font-bold transition-transform ease-in-out hover:scale-105 active:scale-95"}>Who Am I?</button>
                 <Link to={'/about'} className={'text-center'}>What does this do?</Link>
-            </div>
-        </div>
+           </div>
+        </Layout>
     );
 }
 

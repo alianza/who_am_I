@@ -5,6 +5,7 @@ import { useHistory, useRouteMatch } from "react-router-dom";
 import iso3311a2 from 'iso-3166-1-alpha-2'
 import { ReactComponent as Female } from 'assets/gender-female.svg'
 import { ReactComponent as Male } from 'assets/gender-male.svg'
+import Layout from "../../Layout/Layout/Layout";
 
 function Result() {
     const history = useHistory();
@@ -32,13 +33,13 @@ function Result() {
     }, [name, countryCode, history])
 
     return (
-        <div id={'result'} className={'absolute w-screen top-16 p-4 flex flex-col gap-8'}>
+        <Layout>
             <div className={'text-center'}>
-                <h1 className={'text-8xl text-accent-1 text-shadow-main'}>Who Am I?</h1>
+                <h1 className={'main-title'}>Who Am I?</h1>
             </div>
             { result &&
-            <div className={"flex flex-col gap-4 sm:m-auto shadow"}>
-                <div className={'text-center bg-accent-1 p-4 shadow-lg md:px-24 shadow-outline-text-secondary'}>
+            <div className={"content-container"}>
+                <div className={'text-center bg-accent-1 p-4 shadow-lg sm:px-24'}>
                     <h1 className={'text-4xl my-4'}>{capitalize(name)}</h1>
 
                     {countryCode &&
@@ -72,7 +73,7 @@ function Result() {
                 <button onClick={() => { history.push('/') }} className={"bg-secondary p-2 text-primary font-bold transition-transform ease-in-out hover:scale-105 active:scale-95"}>Try Again!</button>
             </div>
             }
-        </div>
+        </Layout>
     );
 }
 
