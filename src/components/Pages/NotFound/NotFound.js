@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function NotFound() {
     return (
-    <div id={'home'} className={'w-screen mt-12 p-4'}>
+    <div id={'notFound'} className={'absolute w-screen top-16 p-4'}>
         <div className={'text-center'}>
             <h1 className={'text-8xl text-accent-1 text-shadow-main mb-4'}>Not Found...</h1>
             <h1>404 Oops...</h1>

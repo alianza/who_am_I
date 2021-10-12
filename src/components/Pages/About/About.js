@@ -2,7 +2,7 @@ import React from "react";
 
 function About() {
     return (
-        <div id={'about'} className={'w-screen mt-12 p-4'}>
+        <div id={'about'} className={'absolute w-screen top-16 p-4'}>
             <div className={'text-center'}>
                 <h1 className={'text-8xl text-accent-1 text-shadow-main'}>About</h1>
             </div>

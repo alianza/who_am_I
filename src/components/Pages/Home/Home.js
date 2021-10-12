@@ -19,7 +19,7 @@ function Home() {
     }
 
     return (
-        <div id={'home'} className={'w-screen mt-12 p-4 flex flex-col gap-8'}>
+        <div id={'home'} className={'absolute w-screen top-16 p-4 flex flex-col gap-8'}>
             <div className={'text-center'}>
                 <h1 className={'text-8xl text-accent-1 text-shadow-main'}>Who Am I?</h1>
             </div>

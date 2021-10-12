@@ -11,7 +11,7 @@ function Result() {
     const match = useRouteMatch();
 
     const name = match.params.name
-    const countryCode = match.params.countryCode
+    const countryCode = match.params.countryCode?.toUpperCase()
     const [result, setResult] = useState()
 
     useEffect(() => {
@@ -32,7 +32,7 @@ function Result() {
     }, [name, countryCode, history])
 
     return (
-        <div id={'home'} className={'w-screen mt-12 p-4 flex flex-col gap-8'}>
+        <div id={'result'} className={'absolute w-screen top-16 p-4 flex flex-col gap-8'}>
             <div className={'text-center'}>
                 <h1 className={'text-8xl text-accent-1 text-shadow-main'}>Who Am I?</h1>
             </div>
@@ -40,23 +40,33 @@ function Result() {
             <div className={"flex flex-col gap-4 sm:m-auto shadow"}>
                 <div className={'text-center bg-accent-1 p-4 shadow-lg md:px-24 shadow-outline-text-secondary'}>
                     <h1 className={'text-4xl my-4'}>{capitalize(name)}</h1>
-                    {countryCode && <h2 className={'text-accent-3 mb-4'}>From <span className={'text-text-primary'}>{iso3311a2.getCountry(countryCode)}</span></h2>}
-                    <h2 className={'text-accent-3'}>Age</h2>
-                    <h1 className={'text-4xl mb-4'}>{result.ageResult.age}</h1>
 
-                    <h2 className={'text-accent-3'}>Gender</h2>
-                    { result.genderResult.gender === 'male' ?
-                        <Male className={'fill-current w-[64px] h-[64px] m-auto'}/> :
-                        <Female className={'fill-current w-[64px] h-[64px] m-auto'}/>
+                    {countryCode &&
+                        <h2 className={'text-accent-3 mb-4'}>From <span className={'text-text-primary'}>{iso3311a2.getCountry(countryCode)}</span></h2>
                     }
-                    <div className={'text-sm text-accent-3 mb-4'}>Probability: <span className={'text-text-primary'}>{Math.round(100 * result.genderResult.probability)}%</span></div>
+                    { !!result.ageResult?.age && <>
+                        <h2 className={'text-accent-3'}>Age</h2>
+                        <h1 className={'text-4xl mb-4'}>{result.ageResult.age}</h1></>
+                    }
 
-                    { !!result.nationalityResult?.country?.length &&
-                        <>
-                            <h2 className={'text-accent-3'}>Nationality</h2>
-                            <h1 className={'text-4xl'}>{iso3311a2.getCountry(result.nationalityResult.country[0].country_id)}</h1>
-                            <div className={'text-sm text-accent-3'}>Probability: <span className={'text-text-primary'}>{Math.round(100 * result.nationalityResult.country[0].probability)}%</span></div>
-                        </>
+                    { !!result.genderResult?.gender && <>
+                        <h2 className={'text-accent-3'}>Gender</h2>
+                        {result.genderResult.gender === 'male' ?
+                            <Male className={'fill-current w-[64px] h-[64px] m-auto'}/> :
+                            <Female className={'fill-current w-[64px] h-[64px] m-auto'}/>
+                        }
+                        <div className={'text-sm text-accent-3 mb-4'}>Probability: <span className={'text-text-primary'}>{Math.round(100 * result.genderResult.probability)}%</span></div></>
+                    }
+
+                    { !!result.nationalityResult?.country?.length && <>
+                        <h2 className={'text-accent-3'}>Nationality</h2>
+                        <h1 className={'text-4xl'}>{iso3311a2.getCountry(result.nationalityResult.country[0].country_id)}</h1>
+                        <div className={'text-sm text-accent-3'}>Probability: <span className={'text-text-primary'}>{Math.round(100 * result.nationalityResult.country[0].probability)}%</span></div></>
+                    }
+
+                    { !(!!result?.ageResult?.age || !!result?.genderResult?.gender || !!result?.nationalityResult?.country?.length) && <>
+                        <span className={'text-primary block'}>You are a unknown alien... 👾</span>
+                        <span className={'text-secondary text-sm'}>No known data based on your name.</span></>
                     }
                 </div>
                 <button onClick={() => { history.push('/') }} className={"bg-secondary p-2 text-primary font-bold transition-transform ease-in-out hover:scale-105 active:scale-95"}>Try Again!</button>
