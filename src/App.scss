@@ -2,19 +2,6 @@
 
 @import 'style/colors';
 
-.switch-wrapper {
-  position: relative;
-
-  & > div {
-    position: absolute;
-    pointer-events: none;
-
-    & > div {
-      pointer-events: all;
-    }
-  }
-}
-
 a, button.link {
   text-decoration: underline;
   text-decoration-color: transparent;

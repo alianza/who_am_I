@@ -15,13 +15,11 @@ function App() {
 
               <Menu/>
 
-              <div id={'content'} className={'h-screen bg-primary'}>
-
                   <AnimatedSwitch
                       atEnter={{opacity: 0}}
                       atLeave={{opacity: 0}}
                       atActive={{opacity: 1}}
-                      className={'switch-wrapper'}
+                      className={'h-screen bg-primary'}
                   >
                       <Route exact path='/' component={Home}/>
 
@@ -32,8 +30,6 @@ function App() {
                       <Route component={NotFound}/>
 
                   </AnimatedSwitch>
-
-              </div>
 
               <Loader/>
 
