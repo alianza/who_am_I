@@ -8,7 +8,6 @@
     "jest-test": "craco test",
     "cypress-test": "cypress run --browser chrome --spec cypress/integration/tests/**/*",
     "cypress-open": "cypress open",
-    "start-json-server": "json-server --watch json-server/db.json --port 3001",
     "serve": "serve -s ./build -p 5000"
   },
   "dependencies": {
