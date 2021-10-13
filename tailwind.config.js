@@ -35,22 +35,22 @@ module.exports = {
       },
       keyframes: {
         wave: {
-          '0%': { transform: 'scale(1,0)' },
-          '100%': { transform: 'scale(1,1)' },
+          '0%': { transform: 'scale(1, 0)' },
+          '100%': { transform: 'scale(1, 1)' },
         },
         waveSm: {
-          '0%': { transform: 'scale(1,0)' },
-          '100%': { transform: 'scale(4.5,6.5)' },
+          '0%': { transform: 'scale(1, 0)' },
+          '100%': { transform: 'scale(4.5, 6.5)' },
         },
         waveXsm: {
-          '0%': { transform: 'scale(1,0)' },
-          '100%': { transform: 'scale(1.5,1.5)' },
-        },
+          '0%': { transform: 'scale(1, 0)' },
+          '100%': { transform: 'scale(1.5, 1.5)' },
+        }
       },
       animation: {
         wave: 'wave 1s ease-in-out 1',
         waveSm: 'waveSm 1s ease-in-out 1',
-        waveXsm: 'waveXsm 1s ease-in-out 1',
+        waveXsm: 'waveXsm 1s ease-in-out 1'
       },
     },
     screens: {
