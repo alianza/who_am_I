@@ -13,7 +13,7 @@ function Result() {
 
     const name = match.params.name
     const countryCode = match.params.countryCode?.toUpperCase()
-    const [result, setResult] = useState()
+    const [result, setResult] = useState({ ageResult: null, genderResult: null })
 
     useEffect(() => {
         // Loader.showLoader()
